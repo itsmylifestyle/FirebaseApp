@@ -6,11 +6,21 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseAuth 
 
 struct ContentView: View {
+    
+    @State var status = UserDefaults.standard.value(forKey: "status") as? Bool ?? false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            if status {
+                homeWithLogout()
+            } else {
+                first()
+            }
+        }
     }
 }
 
@@ -19,3 +29,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+// this is comment
+
